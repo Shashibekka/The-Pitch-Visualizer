@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Storyboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: #eee; max-width: 1000px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; margin-bottom: 40px; color: #fff; }
+        .storyboard-container { display: flex; flex-direction: column; gap: 50px; }
+        .panel { background: #1e1e1e; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
+        .panel img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; }
+        .caption { font-size: 20px; color: #ccc; font-style: italic; letter-spacing: 0.5px; }
+        .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #4dabf7; font-weight: bold; padding: 10px 15px; border: 1px solid #4dabf7; border-radius: 6px; transition: all 0.3s;}
+        .back-link:hover { background: #4dabf7; color: #121212; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">&larr; Create Another Pitch</a>
+    <h1>Generated Storyboard Sequence</h1>
+    
+    <div class="storyboard-container">
+        {% for panel in storyboard %}
+            <div class="panel">
+                {% if panel.image_url %}
+                    <img src="{{ panel.image_url }}" alt="Storyboard Panel">
+                {% else %}
+                    <div style="height: 400px; display: flex; align-items: center; justify-content: center; background: #333; border-radius: 8px; margin-bottom: 15px;">
+                        <span style="color: #ff6b6b;">Image Generation Failed (API Timeout)</span>
+                    </div>
+                {% endif %}
+                <div class="caption">"{{ panel.text }}"</div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
