@@ -1,4 +1,4 @@
-# The Pitch Visualizer - DarwixAI Assessment
+# The Pitch Visualizer
 
 ## Vision & Context
 This project is an automated storyboard generator designed to help sales teams turn narrative text into compelling visual aids. It takes a block of text, segments it into logical scenes, engineers descriptive prompts, and generates a cohesive visual storyboard using AI.
